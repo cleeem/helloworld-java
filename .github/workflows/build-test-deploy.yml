@@ -7,6 +7,7 @@ on:
 
 env:
   PROJECT_VERSION: 1.0.0
+  MAVEN_OPTS: "-DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION -Dmaven.repo.local=/home/runner/work/lib"
 
 jobs:
   main_job:
@@ -25,4 +26,4 @@ jobs:
           java-version: '17'
 
       - name: build jar
-        run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION
+        run: mvn clean package $MAVEN_OPTS
