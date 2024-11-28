@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v4.5.0
         with:
           distribution: zulu
-          java-version: 21
+          java-version: 17
 
       - name: build maven no test
         run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION
