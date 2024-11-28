@@ -18,6 +18,7 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@v4.5.0
         with:
+          java-version: 21
           distribution: zulu
 
       - name: build maven no test
