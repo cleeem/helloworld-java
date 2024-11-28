@@ -21,4 +21,4 @@ jobs:
           distribution: zulu
 
       - name: build maven no test
-        run: mvn clean package -DskipTests -Djar.finalName=${{GITHUB_REPOSITORY}}-$PROJECT_VERSION
+        run: mvn clean package -DskipTests -Djar.finalName=helloworld-${{PROJECT_VERSION}}
