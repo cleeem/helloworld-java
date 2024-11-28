@@ -11,3 +11,9 @@ jobs:
     steps:
       - name: version projet
         run: echo $PROJECT_VERSION
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.5.0
+
+      - name: build maven no test
+        run: mvn clean package -DskipTests
