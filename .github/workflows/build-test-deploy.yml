@@ -1,6 +1,9 @@
 name: workflow tp2
 
-on: push
+on: 
+  push:
+    branches:
+      - main
 
 env:
   PROJECT_VERSION: 1.0.0
@@ -14,6 +17,8 @@ jobs:
 
       - name: Setup Java JDK
         uses: actions/setup-java@v4.5.0
+        with:
+          distribution: zulu
 
       - name: build maven no test
-        run: mvn clean package -DskipTests
+        run: mvn clean package -DskipTests -Djar.finalName=${{GITHUB_REPOSITORY}}-$PROJECT_VERSION
