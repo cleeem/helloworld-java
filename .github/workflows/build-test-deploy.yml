@@ -18,8 +18,8 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@v4.5.0
         with:
-          java-version: 21
           distribution: zulu
+          java-version: 21
 
       - name: build maven no test
         run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION
