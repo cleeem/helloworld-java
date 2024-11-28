@@ -22,4 +22,4 @@ jobs:
           java-version: '17'
 
       - name: build jar
-        run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION -f pom.xml
+        run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION -f ./pom.xml
