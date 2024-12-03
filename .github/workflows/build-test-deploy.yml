@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v4.1.2
         with:
           path: /home/runner/work/lib
-          key: ${{ runner.os }}-maven-${{ hasfile('**/pom.xml') }}
+          key: ${{ runner.os }}-maven-${{ hashfile('**/pom.xml') }}
 
       - name: build jar
         run: mvn clean package -DskipTests -Djar.finalName=helloworld-${PROJECT_VERSION} $MAVEN_OPTS
