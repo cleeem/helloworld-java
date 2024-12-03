@@ -29,12 +29,12 @@ jobs:
           java-version: '17'
 
       - name: build jar
-        run: mvn clean package -DskipTests -Djar.finalName=helloworld-${{ PROJECT_VERSION }} -Dmaven.repo.local=/home/runner/work/lib
+        run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION -Dmaven.repo.local=/home/runner/work/lib
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.4.3
         with:
-          path: /home/runner/work/helloworld-java/helloworld-java/target/helloworld-${{ PROJECT_VERSION }}.jar
+          path: /home/runner/work/helloworld-java/helloworld-java/target/helloworld-$PROJECT_VERSION.jar
           if-no-files-found: warn
 
       - name: test cp ls
