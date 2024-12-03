@@ -39,8 +39,7 @@ jobs:
 
       - name: test cp ls
         run: | 
-          cp /home/runner/work/helloworld-java/helloworld-java/target/helloworld-$PROJECT_VERSION.jar /home/runner/work
-          ls /home/runner/work
+          ls /home/runner/work/helloworld-java/helloworld-java/target/
       
 
   test:
@@ -53,7 +52,8 @@ jobs:
       - name: Cache
         uses: actions/cache@v4.1.2
         with:
-          path: "/home/runner/work/lib"
+          path: /home/runner/work/lib
+          key: dependances
       
       - name: tests maven
         run: mvn test
