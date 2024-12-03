@@ -37,4 +37,12 @@ jobs:
   
       - name: tests maven
         run: mvn test
-    
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          path: "helloworld-${PROJECT_VERSION}.jar"
+          if-no-files-found: warn
+      
+      - name: Test echo
+        run: echo (ls)
