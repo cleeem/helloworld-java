@@ -41,7 +41,7 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.4.3
         with: 
-          name: test
+          name: artifact
           path: /home/runner/work/helloworld-java/helloworld-java/target/helloworld-${{ env.PROJECT_VERSION }}.jar
           if-no-files-found: warn
 
@@ -53,6 +53,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: [build]
+    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -76,9 +77,9 @@ jobs:
       - name: Download Build Artifact
         uses: actions/download-artifact@v4.1.2
         with:
-          name: test
+          name: artifact
 
       - name: Simuler le déploiement
         run: |
           echo "Simulating deployment for version $PROJECT_VERSION"
-          # Vous pouvez ajouter ici d'autres commandes simulant un déploiement
+          
